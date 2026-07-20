@@ -1,0 +1,43 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://hoplite.sh/docs — auth model captured from the Hoplite docs (CLI, MCP
+  server, automations, getting-started). No OpenAPI is published, so this profile
+  is documented rather than derived from securitySchemes.
+description: >-
+  Hoplite's authentication surfaces: API keys for programmatic/API access, OAuth
+  for the MCP server, per-automation bearer webhook tokens, and end-user sign-in
+  options for the web app.
+summary:
+  types: [apiKey, oauth2, http-bearer]
+  api_key_in: [header]
+  oauth2_flows: [authorizationCode]
+schemes:
+- name: apiKey
+  type: apiKey
+  in: header
+  usage: >-
+    Created under Settings -> Account -> API keys; used by the CLI, scripts, and
+    other API automation.
+  docs: https://hoplite.sh/docs/cli
+- name: mcpOAuth
+  type: oauth2
+  flow: authorizationCode
+  usage: >-
+    MCP server authorization — on first connect the client opens a browser to
+    sign in and authorize a workspace; token stored at
+    ~/.config/hoplite/mcp-oauth.json.
+  docs: https://hoplite.sh/docs/mcp-server
+- name: automationWebhookToken
+  type: http
+  scheme: bearer
+  token_prefix: hwa2_
+  usage: >-
+    Per-automation bearer token sent in the Authorization header to POST
+    /api/automations/webhooks; scoped to a single automation, revealed once,
+    rotatable.
+  docs: https://hoplite.sh/docs/automations
+end_user_sign_in:
+  providers: [email-password, github, google]
+  extras: [two-factor-authentication, passkeys]
+  docs: https://hoplite.sh/docs/getting-started
