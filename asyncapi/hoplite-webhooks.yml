@@ -1,0 +1,32 @@
+generated: '2026-07-19'
+method: searched
+source: https://hoplite.sh/docs/automations
+spec_type: Webhooks
+description: >-
+  Hoplite's webhook surface is inbound: external systems trigger an agent run by
+  POSTing to a fixed delivery endpoint, and the GitHub App delivers review
+  activity into threads. Hoplite publishes no AsyncAPI document; this captures the
+  documented webhook catalog. Never fabricated — outbound event streams are not
+  documented.
+inbound_webhooks:
+- name: automation-trigger
+  endpoint: POST https://api.hoplite.sh/api/automations/webhooks
+  auth:
+    scheme: bearer
+    header: Authorization
+    token_prefix: hwa2_
+    notes: >-
+      Token scoped to one automation; revealed once; rotatable (old credential
+      stops working immediately). Legacy hwa_ token-in-path URLs are deprecated
+      and rejected for hwa2_ credentials.
+  behavior: >-
+    An authenticated POST runs the automation's prompt as a new agent run in the
+    bound project. The request body is arbitrary JSON (e.g. {"event":"deploy.failed"}).
+  docs: https://hoplite.sh/docs/automations
+- name: github-review-activity
+  source: GitHub App
+  behavior: >-
+    The Hoplite GitHub App delivers pull-request review threads, comments, and
+    check results via webhooks so thread PR state stays in sync; unresolved
+    comments feed back into the agent conversation on its next run.
+  docs: https://hoplite.sh/docs/github

@@ -1,0 +1,22 @@
+generated: '2026-07-19'
+method: searched
+source: https://hoplite.sh/docs
+description: >-
+  Hoplite lifecycle signals. No formal versioning or deprecation policy page is
+  published; the API exposes a build-version health signal and Hoplite operates a
+  public status page. One observed deprecation practice: legacy automation
+  webhook token-in-path (hwa_) URLs are being retired in favor of header-only
+  hwa2_ tokens over a bounded compatibility window.
+versioning:
+  scheme: build-sha
+  signal: GET https://api.hoplite.sh/health -> {ok, service, version(commit sha)}
+status_page: https://status.hoplite.sh
+deprecation:
+  policy_url: null
+  observed_practices:
+  - >-
+    Legacy automation webhook token-in-path (hwa_) URLs remain available during a
+    compatibility window; the legacy route can be removed after the automation
+    webhook metric reports no legacy_path deliveries for 90 consecutive days.
+sla:
+  url: null

@@ -1,0 +1,26 @@
+# Hoplite / Docs
+
+## Pages
+
+- [Models](https://hoplite.sh/docs/agent/models.md): The model lineup, reasoning effort, speed tiers, and automatic credential routing
+- [The agent](https://hoplite.sh/docs/agent.md): What the agent can do, which models power it, and how to steer it
+- [Slash commands](https://hoplite.sh/docs/agent/slash-commands.md): Composer shortcuts for common thread actions
+- [Tools](https://hoplite.sh/docs/agent/tools.md): The agent's full tool catalog, and which actions require approval
+- [Automations](https://hoplite.sh/docs/automations.md): Run agent prompts on webhooks and schedules
+- [Billing](https://hoplite.sh/docs/billing.md): Prepaid credits, top-ups, and usage attribution
+- [CLI](https://hoplite.sh/docs/cli.md): Import your local Claude Code, Codex, or OpenCode history into Hoplite
+- [Getting started](https://hoplite.sh/docs/getting-started.md): From sign-up to your first agent-authored pull request
+- [GitHub & pull requests](https://hoplite.sh/docs/github.md): The GitHub App, the PR rail, and the review loop
+- [Linear](https://hoplite.sh/docs/integrations/linear.md): Route Linear mentions and delegated issues into a project
+- [MCP servers](https://hoplite.sh/docs/integrations/mcp.md): Extend the agent's tool catalog with Model Context Protocol servers
+- [Integrations](https://hoplite.sh/docs/integrations.md): Slack, Linear, and MCP servers
+- [Slack](https://hoplite.sh/docs/integrations/slack.md): Connect your Slack workspace and bind channels to projects
+- [MCP server](https://hoplite.sh/docs/mcp-server.md): Drive Hoplite from Claude Code, Cursor, or any MCP client
+- [Introduction](https://hoplite.sh/docs.md): Hoplite is a coding agent platform: delegate work to agents that run in real dev environments and ship pull requests.
+- [Environment variables](https://hoplite.sh/docs/sandboxes/environment-variables.md): Encrypted per-project secrets, injected into every command the agent runs
+- [Sandboxes](https://hoplite.sh/docs/sandboxes.md): The isolated dev environments where agents work
+- [Previews](https://hoplite.sh/docs/sandboxes/previews.md): Live preview URLs for your running app, plus the in-thread preview and terminal panels
+- [Resources](https://hoplite.sh/docs/sandboxes/resources.md): CPU, memory, and disk — and how the agent scales them
+- [Project scripts](https://hoplite.sh/docs/sandboxes/scripts.md): .hoplite/settings.json — setup, run, and archive scripts, ports, and override precedence
+- [Threads](https://hoplite.sh/docs/threads.md): The conversation UI: runs, approvals, queueing, attachments, and the PR rail
+- [Workspace & settings](https://hoplite.sh/docs/workspace.md): Members, roles, domain auto-join, and the settings map

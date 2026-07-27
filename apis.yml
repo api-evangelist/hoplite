@@ -1,22 +1,119 @@
 aid: hoplite
 name: Hoplite
-description: Hoplite is a company surfaced as a portfolio company of y-combinator and added to the API
-  Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Hoplite is a cloud coding-agent platform (Y Combinator S26). You connect a
+  GitHub repository, describe a task in a thread, and an autonomous agent does
+  the work inside an isolated, cloned dev environment (a "sandbox") — reading and
+  editing code, running your test suite, starting your dev server, verifying
+  changes in a built-in browser, and opening a pull request when it's done. Runs
+  stream live into the thread with inline approvals for sensitive actions, a diff
+  view, and a PR rail that tracks checks, reviews, and unresolved comments.
+  Hoplite runs a lineup of OpenAI (GPT-5.6 family, GPT-5.3 Codex) and Anthropic
+  (Fable 5, Opus 4.8, Sonnet 4.6, Haiku 4.5) models, bills on prepaid credits via
+  Stripe, and integrates with GitHub, Slack, Linear, and customer-hosted MCP
+  servers. It also exposes its own hosted MCP server and a CLI so you can drive
+  Hoplite from Claude Code, Cursor, or any MCP client. Founded 2026 in San
+  Francisco by Ryan Morrissey and Bence Redmond.
 url: https://raw.githubusercontent.com/api-evangelist/hoplite/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - y-combinator
-x-tier: stub
-x-tier-reason: portfolio-lead
+x-tier: profiled
+x-tier-reason: enriched-from-public-developer-surface
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://hoplite.sh/favicon.svg
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-19'
 tags:
 - Company
-apis: []
+- Coding Agents
+- Developer Tools
+- AI Agents
+- Cloud Development Environments
+- DevOps
+- MCP
+- Pull Requests
+- Software Automation
+- GitHub
+apis:
+- name: Hoplite API
+  description: >-
+    The Hoplite platform API at api.hoplite.sh. Documented through the developer
+    docs (no public OpenAPI published as of this profiling). Surfaces include
+    model-provider discovery (GET /api/model-providers), GitHub discovery (GET
+    /api/github/installations, /api/github/repositories, and
+    /api/github/repositories/:id/branches), thread/project management, and an
+    inbound automation-webhook delivery endpoint (POST /api/automations/webhooks).
+    Authenticated with an API key (Settings -> Account -> API keys) or OAuth via
+    the MCP server. A /health endpoint returns service status and build version.
+  humanURL: https://hoplite.sh/docs
+  baseURL: https://api.hoplite.sh
+  properties:
+  - type: MCPServer
+    url: mcp/hoplite-mcp.yml
+  - type: Webhooks
+    url: asyncapi/hoplite-webhooks.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+common:
+- type: DomainSecurity
+  url: security/hoplite-domain-security.yml
+- type: Website
+  url: https://hoplite.sh
+- type: DeveloperPortal
+  url: https://hoplite.sh/docs
+- type: Documentation
+  url: https://hoplite.sh/docs
+- type: GettingStarted
+  url: https://hoplite.sh/docs/getting-started
+- type: Pricing
+  url: https://hoplite.sh/pricing
+- type: SignUp
+  url: https://hoplite.sh/signup
+- type: Login
+  url: https://hoplite.sh/login
+- type: StatusPage
+  url: https://status.hoplite.sh
+- type: LLMsTxt
+  url: llms/hoplite-llms.txt
+- type: MCPServer
+  url: mcp/hoplite-mcp.yml
+- type: CLI
+  url: cli/hoplite-cli.yml
+- type: Packages
+  url: packages/hoplite-packages.yml
+- type: Authentication
+  url: authentication/hoplite-authentication.yml
+- type: Conventions
+  url: conventions/hoplite-conventions.yml
+- type: Idempotency
+  url: conventions/hoplite-conventions.yml
+- type: Lifecycle
+  url: lifecycle/hoplite-lifecycle.yml
+- type: Webhooks
+  url: asyncapi/hoplite-webhooks.yml
+- type: Conformance
+  url: conformance/hoplite-conformance.yml
+- type: DataModel
+  url: data-model/hoplite-data-model.yml
+x-enrichment:
+  date: '2026-07-19'
+  status: backfilled
+  pass: local-v1
+  note: backfilled from .gitignore signal + verified work evidence

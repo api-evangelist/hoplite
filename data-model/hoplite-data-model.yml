@@ -1,0 +1,37 @@
+generated: '2026-07-19'
+method: searched
+source: https://hoplite.sh/docs
+description: >-
+  Hoplite's core entity model, captured from the documented "Core concepts" and
+  the automations/GitHub docs (no OpenAPI to derive $ref graph from). Entities and
+  their containment/relationships as documented.
+entities:
+- name: Workspace
+  description: Top-level team account. Holds members, billing, integrations, and projects.
+- name: Project
+  description: >-
+    A GitHub repository binding plus everything scoped to it — base branch,
+    environment variables, scripts, model defaults, instructions, connections.
+- name: Thread
+  description: A single conversation and task against a project; holds messages, runs, diffs, and pull requests.
+- name: Run
+  description: One agent execution turn within a thread — from a message to the agent's reply.
+- name: Sandbox
+  description: The isolated dev environment where the agent works, created per thread.
+- name: Automation
+  description: A named, project-scoped prompt run on a webhook or schedule trigger.
+- name: PullRequest
+  description: A GitHub PR produced by a thread; linked back to the thread that produced it.
+relationships:
+- {from: Workspace, type: has_many, to: Project}
+- {from: Workspace, type: has_many, to: member}
+- {from: Project, type: belongs_to, to: Workspace}
+- {from: Project, type: has_many, to: Thread}
+- {from: Project, type: has_many, to: Automation}
+- {from: Project, type: has_one, to: github_repository, via: repo binding}
+- {from: Thread, type: belongs_to, to: Project}
+- {from: Thread, type: has_many, to: Run}
+- {from: Thread, type: has_one, to: Sandbox}
+- {from: Thread, type: has_many, to: PullRequest}
+- {from: Automation, type: belongs_to, to: Project}
+- {from: Run, type: belongs_to, to: Thread}

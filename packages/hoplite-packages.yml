@@ -1,0 +1,36 @@
+generated: '2026-07-19'
+method: searched
+source: https://hoplite.sh/docs/cli
+description: >-
+  First-party Hoplite client tooling. Hoplite ships a CLI (the onboarding /
+  history-import tool and MCP authorizer) rather than per-language server SDKs;
+  the command surface is catalogued in cli/hoplite-cli.yml. The npm package was
+  verified against https://registry.npmjs.org. Native binaries are distributed
+  via a Homebrew tap and versioned release archives (SHA-256-checksummed) from
+  install.sh / install.ps1.
+packages:
+- language: javascript
+  registry: npm
+  name: "@usehoplite/cli"
+  url: https://www.npmjs.com/package/@usehoplite/cli
+  install: npx -y @usehoplite/cli onboard
+  version: 2.2.0
+  official: true
+- language: binary
+  registry: homebrew
+  name: CarbonCopyInc/tap/hoplite
+  url: https://github.com/CarbonCopyInc/homebrew-tap
+  install: brew install CarbonCopyInc/tap/hoplite
+  official: true
+- language: binary
+  registry: script
+  name: hoplite (install.sh)
+  url: https://hoplite.sh/install.sh
+  install: curl -fsSL https://hoplite.sh/install.sh | sh
+  official: true
+- language: binary
+  registry: script
+  name: hoplite (install.ps1)
+  url: https://hoplite.sh/install.ps1
+  install: irm https://hoplite.sh/install.ps1 | iex
+  official: true

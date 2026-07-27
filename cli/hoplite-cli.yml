@@ -1,0 +1,27 @@
+generated: '2026-07-19'
+method: searched
+source: https://hoplite.sh/docs/cli
+description: >-
+  The Hoplite CLI (@usehoplite/cli). It imports local coding-agent session
+  history — Claude Code, Codex, and OpenCode — into a Hoplite workspace so
+  locally-built context comes with you, and it authorizes Hoplite's MCP server.
+  Authenticates with an API key created under Settings -> Account -> API keys
+  (the same keys work for scripts and other API automation). Command surface
+  captured verbatim from the docs.
+docs: https://hoplite.sh/docs/cli
+package: packages/hoplite-packages.yml
+install:
+  homebrew: brew install CarbonCopyInc/tap/hoplite
+  script_unix: curl -fsSL https://hoplite.sh/install.sh | sh
+  script_windows: irm https://hoplite.sh/install.ps1 | iex
+  npm: npx -y @usehoplite/cli onboard
+  pnpm: pnpm dlx @usehoplite/cli onboard
+auth: API key (Settings -> Account -> API keys)
+commands:
+- {name: onboard, description: Scan local Claude Code / Codex / OpenCode history and import it into the workspace.}
+- {name: undo, description: Reverse a previous import (removes what a prior onboard run imported).}
+- {name: mcp start, description: Authorize Hoplite's MCP server via browser OAuth and store the token locally (~/.config/hoplite/mcp-oauth.json).}
+verify: >-
+  Every native download ships a checksums.txt for its immutable archives; a
+  specific version/destination can be pinned, e.g.
+  `curl -fsSL https://hoplite.sh/install.sh | sh -s -- --version 0.1.0 --install-dir "$HOME/.local/bin"`.

@@ -1,0 +1,61 @@
+generated: '2026-07-19'
+method: searched
+source: >-
+  https://hoplite.sh/docs — cross-cutting request/response and runtime semantics
+  documented across the Hoplite docs (MCP server, automations, CLI, billing).
+  Hoplite publishes no OpenAPI, so these conventions are captured from the prose
+  docs rather than derived from a spec.
+description: >-
+  How the Hoplite platform behaves across operations: authentication styles,
+  idempotency, webhook delivery/auth, scheduling, versioning, and metering.
+base_url: https://api.hoplite.sh
+api_style: HTTPS JSON API; hosted MCP server over streamable HTTP.
+
+authentication:
+  schemes:
+  - API key (Settings -> Account -> API keys) for the CLI, scripts, and API automation.
+  - OAuth (browser authorization to a workspace) for the MCP server.
+  - Per-automation bearer webhook tokens (hwa2_ prefix), scoped to a single automation.
+  detail: authentication/hoplite-authentication.yml
+  docs: https://hoplite.sh/docs/cli
+
+idempotency:
+  supported: true
+  mechanism: Optional idempotency key on thread creation.
+  applies_to: >-
+    hoplite_create_thread (MCP tool) accepts an optional idempotency key so a
+    repeated create request does not start a duplicate agent run.
+  docs: https://hoplite.sh/docs/mcp-server
+
+webhooks:
+  direction: inbound
+  delivery_endpoint: POST https://api.hoplite.sh/api/automations/webhooks
+  auth: >-
+    Bearer token in the Authorization header (hwa2_ prefix). Tokens are scoped to
+    one automation, revealed once, and rotatable (old credential stops working
+    immediately). Legacy hwa_ token-in-path URLs are deprecated (header-only for
+    hwa2_).
+  detail: asyncapi/hoplite-webhooks.yml
+  docs: https://hoplite.sh/docs/automations
+
+scheduling:
+  supported: true
+  triggers:
+  - Cron — standard 5-field cron expression with an IANA timezone.
+  - Interval — a fixed period, minimum 1 minute.
+  docs: https://hoplite.sh/docs/automations
+
+versioning:
+  api_version_signal: >-
+    GET https://api.hoplite.sh/health returns {ok, service, version} where
+    version is the deployed build commit sha.
+  deprecation_practice: >-
+    Legacy automation webhook token-in-path (hwa_) URLs are supported during a
+    bounded compatibility window and removed after 90 consecutive days with no
+    legacy_path deliveries.
+
+metering:
+  model: Prepaid credits drawn down per run by actual token usage at per-model rates.
+  billed_units: LLM inference (input/output/cached/reasoning tokens); reasoning tokens bill as output.
+  provider: Stripe checkout + billing portal for top-ups and receipts.
+  docs: https://hoplite.sh/docs/billing

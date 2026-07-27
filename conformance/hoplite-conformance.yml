@@ -1,0 +1,23 @@
+generated: '2026-07-19'
+method: derived
+source: https://hoplite.sh/docs
+description: >-
+  Cross-cutting standards Hoplite conforms to, derived from its documented
+  developer surface. No published compliance certifications (SOC 2 / ISO 27001 /
+  etc.) were found, so no Compliance pointer is emitted.
+standards:
+- id: model-context-protocol
+  conforms: true
+  evidence: Hosted MCP server over streamable HTTP at api.hoplite.sh/mcp with an MCP tool catalog.
+- id: oauth2
+  conforms: true
+  evidence: MCP server authorization uses OAuth (browser authorization-code flow to a workspace).
+- id: http-bearer-auth
+  conforms: true
+  evidence: Automation webhook delivery authenticates with an Authorization bearer token (hwa2_).
+- id: cron-scheduling
+  conforms: true
+  evidence: Scheduled automations accept standard 5-field cron expressions with IANA timezones.
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No documented problem+json error envelope.

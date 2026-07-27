@@ -1,0 +1,40 @@
+generated: '2026-07-19'
+method: searched
+status: published
+source: https://hoplite.sh/docs/mcp-server
+description: >-
+  Hoplite operates its own official hosted Model Context Protocol server so an
+  MCP client (Claude Code, Cursor, or any MCP client) can list projects, start
+  Hoplite agent threads, and call reviewed Hoplite API routes. Runs over
+  streamable HTTP. Authentication is OAuth: on first connect the client opens a
+  browser to sign in and authorize a workspace (clients that support MCP OAuth
+  handle the flow automatically). Authorization can also be primed ahead of time
+  from a terminal with `npx -y @usehoplite/cli mcp start`, which stores the token
+  at ~/.config/hoplite/mcp-oauth.json. The server intentionally does not return
+  credentials, terminal/browser session URLs, or raw workspace logs. Tool list
+  captured verbatim from the Hoplite MCP documentation.
+server:
+  name: hoplite
+  transport: http
+  url: https://api.hoplite.sh/mcp
+  auth: oauth2
+setup:
+  claude_code: claude mcp add --transport http hoplite https://api.hoplite.sh/mcp
+  json_config: '{"mcpServers":{"hoplite":{"type":"http","url":"https://api.hoplite.sh/mcp"}}}'
+  cli_authorize: npx -y @usehoplite/cli mcp start
+tools:
+- name: hoplite_list_projects
+  description: List projects in the authorized workspace.
+- name: hoplite_list_threads
+  description: List threads, filterable by project and status.
+- name: hoplite_get_thread
+  description: Fetch one thread.
+- name: hoplite_create_thread
+  description: >-
+    Start an agent run — takes a project id and prompt, plus optional model,
+    title, and idempotency key.
+- name: hoplite_call_api
+  description: >-
+    Call reviewed Hoplite API routes with the authorized session — inspect
+    models, repositories, thread timelines and tool calls; manage projects and
+    thread actions.

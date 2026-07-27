@@ -1,0 +1,26 @@
+generated: '2026-07-19'
+method: probed
+source: live DNS/TLS/HTTP probes of apis.yml + OpenAPI hosts
+hosts:
+- host: hoplite.sh
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan 15 23:59:59 2027 GMT
+  hsts: false
+- host: api.hoplite.sh
+  https: true
+  tls_version: TLSv1.3
+  cert_expires: Jan 15 23:59:59 2027 GMT
+  hsts: false
+domains:
+- domain: hoplite.sh
+  dnssec: false
+  caa:
+  - 0 issue "amazontrust.com"
+  - 0 issue "awstrust.com"
+  - 0 issue "letsencrypt.org"
+  - 0 issue "pki.goog"
+  - 0 issue "sectigo.com"
+  - 0 issue "amazon.com"
+  spf: false
+  dmarc: false
