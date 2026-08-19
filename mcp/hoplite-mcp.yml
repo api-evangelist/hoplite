@@ -2,17 +2,14 @@ generated: '2026-07-19'
 method: searched
 status: published
 source: https://hoplite.sh/docs/mcp-server
-description: >-
-  Hoplite operates its own official hosted Model Context Protocol server so an
-  MCP client (Claude Code, Cursor, or any MCP client) can list projects, start
-  Hoplite agent threads, and call reviewed Hoplite API routes. Runs over
-  streamable HTTP. Authentication is OAuth: on first connect the client opens a
-  browser to sign in and authorize a workspace (clients that support MCP OAuth
-  handle the flow automatically). Authorization can also be primed ahead of time
-  from a terminal with `npx -y @usehoplite/cli mcp start`, which stores the token
-  at ~/.config/hoplite/mcp-oauth.json. The server intentionally does not return
-  credentials, terminal/browser session URLs, or raw workspace logs. Tool list
-  captured verbatim from the Hoplite MCP documentation.
+description: 'Hoplite operates its own official hosted Model Context Protocol server so an MCP client
+  (Claude Code, Cursor, or any MCP client) can list projects, start Hoplite agent threads, and call reviewed
+  Hoplite API routes. Runs over streamable HTTP. Authentication is OAuth: on first connect the client
+  opens a browser to sign in and authorize a workspace (clients that support MCP OAuth handle the flow
+  automatically). Authorization can also be primed ahead of time from a terminal with `npx -y @usehoplite/cli
+  mcp start`, which stores the token at ~/.config/hoplite/mcp-oauth.json. The server intentionally does
+  not return credentials, terminal/browser session URLs, or raw workspace logs. Tool list captured verbatim
+  from the Hoplite MCP documentation.'
 server:
   name: hoplite
   transport: http
@@ -30,11 +27,15 @@ tools:
 - name: hoplite_get_thread
   description: Fetch one thread.
 - name: hoplite_create_thread
-  description: >-
-    Start an agent run — takes a project id and prompt, plus optional model,
-    title, and idempotency key.
+  description: Start an agent run — takes a project id and prompt, plus optional model, title, and idempotency
+    key.
 - name: hoplite_call_api
-  description: >-
-    Call reviewed Hoplite API routes with the authorized session — inspect
-    models, repositories, thread timelines and tool calls; manage projects and
-    thread actions.
+  description: Call reviewed Hoplite API routes with the authorized session — inspect models, repositories,
+    thread timelines and tool calls; manage projects and thread actions.
+deployment:
+  mode: remote
+  endpoint: https://api.hoplite.sh/mcp
+  verified: probed
+  probe: gated
+  checked: '2026-08-12'
+  source: catalog MCP census
