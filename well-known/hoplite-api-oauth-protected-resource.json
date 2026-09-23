@@ -1,0 +1,1 @@
+{"resource":"https://api.hoplite.sh/mcp","authorization_servers":["https://api.hoplite.sh/api/auth"],"scopes_supported":["openid","profile","email","offline_access","api:read","api:write","project:read","thread:create","thread:read","thread:update"],"bearer_methods_supported":["header"],"resource_name":"Hoplite MCP"}
