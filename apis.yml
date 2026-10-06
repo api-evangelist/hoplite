@@ -47,7 +47,7 @@ accessModel:
 image: https://hoplite.sh/favicon.svg
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-19'
+modified: '2026-10-06'
 tags:
 - Company
 - Coding Agents
@@ -83,6 +83,10 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- url: https://hoplite.sh/blog
+  type: Blog
+- url: https://hoplite.sh/feed.xml
+  type: BlogRSS
 - type: DomainSecurity
   url: security/hoplite-domain-security.yml
 - type: Website
