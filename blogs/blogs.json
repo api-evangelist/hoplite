@@ -1,0 +1,21 @@
+{
+  "repo": "hoplite",
+  "feeds": [
+    {
+      "source": "https://hoplite.sh/blog",
+      "feed_url": "https://hoplite.sh/blog",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    },
+    {
+      "source": "https://hoplite.sh/feed.xml",
+      "feed_url": "https://hoplite.sh/feed.xml",
+      "title": "",
+      "saved": 2,
+      "method": "feed"
+    }
+  ],
+  "post_count": 2,
+  "fetched": "2026-10-10T13:15:00Z"
+}
