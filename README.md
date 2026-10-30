@@ -64,6 +64,104 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Hoplite is a company surfaced as a portfolio company of y-combinator and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Hoplite is a cloud coding-agent platform (Y Combinator S26). You connect a GitHub repository, describe a task in a thread, and an autonomous agent does the work inside an isolated, cloned dev environment (a "sandbox") — reading and editing code, running your test suite, starting your dev server, verifying changes in a built-in browser, and opening a pull request when it's done. Runs stream live into the thread with inline approvals for sensitive actions, a diff view, and a PR rail that tracks checks, reviews, and unresolved comments. Hoplite runs a lineup of OpenAI (GPT-5.6 family, GPT-5.3 Codex) and Anthropic (Fable 5, Opus 4.8, Sonnet 4.6, Haiku 4.5) models, bills on prepaid credits via Stripe, and integrates with GitHub, Slack, Linear, and customer-hosted MCP servers. It also exposes its own hosted MCP server and a CLI so you can drive Hoplite from Claude Code, Cursor, or any MCP client. Founded 2026 in San Francisco by Ryan Morrissey and Bence Redmond.
 
-Backed by: y-combinator
+**Areas:** Company · Coding Agents · Developer Tools · AI Agents · Cloud Development Environments · DevOps · MCP · Pull Requests · Software Automation · GitHub
+
+## Hoplite on APIs.io
+
+Everything profiled for Hoplite is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/hoplite/](https://apis.io/providers/hoplite/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [Hoplite API](https://apis.io/apis/hoplite/hoplite-api/) — The Hoplite platform API at api.hoplite.sh. Documented through the developer docs (no public OpenAPI published as of this profiling). Surfaces include…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### AsyncAPI (1)
+
+Event-driven and webhook contracts.
+
+- [Hoplite Webhooks](https://apis.io/asyncapis/hoplite/hoplite-webhooks/)
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [hoplite](https://apis.io/servers/hoplite/hoplite/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Hoplite Authentication](https://apis.io/security/hoplite/hoplite-authentication/)
+- [Hoplite Domain Security](https://apis.io/security/hoplite/hoplite-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://hoplite.sh)
+- [Documentation](https://hoplite.sh/docs)
+- [Getting started](https://hoplite.sh/docs/getting-started)
+- [Pricing](https://hoplite.sh/pricing)
+- [Sign up](https://hoplite.sh/signup)
+- [Blog](https://hoplite.sh/blog)
+- [Status](https://status.hoplite.sh)
+
+## API Evangelist rating
+
+**Kin Score 36.3** — thin · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 39.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 52.4 |
+| Access clarity | 23.7 |
+
+**Agent readiness 47.8** — agent-ready (gated down from agent-native)
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | verified |
+| Auth Clarity | served (partial credit) |
+| Idempotency | documented (partial credit) |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | yes |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | verified |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 16.7** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/hoplite/](https://apis.io/providers/hoplite/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Hoplite: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/hoplite/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
